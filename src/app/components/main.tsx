@@ -14,7 +14,7 @@ export const Main = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0])
   const opacitySection = useTransform(scrollYProgress, [0, 1], [0, 10])
   const scale = useTransform(scrollYProgress, [0, 0.4, 1], [1, 0.9, 0.8])
-  const x = useTransform(scrollYProgress, [0.1, 0.5, 1], ['0%', '-17%', '-12%'])
+  const x = useTransform(scrollYProgress, [0.1, 0.5, 1], ['0%', '-17%', '0%'])
 
   const backgroundColor = useTransform(
     scrollYProgress,
@@ -22,7 +22,20 @@ export const Main = () => {
     ['#aad5ef2d', '#71abcd3e', '#dcd9f649', '#8f83e6']
   )
 
-  const ourGroupImgs = ['liah', 'befoods', 'move', 'saudavel']
+  const foodImgs = [
+    'breakfast',
+    'ramen',
+    'burrito',
+    'hotdog',
+    'beer',
+    'fries',
+    'burger',
+    'salad',
+    'sandwich',
+    'steak',
+    'boba',
+    'banana-split'
+  ]
 
   return (
     <motion.main
@@ -44,8 +57,8 @@ export const Main = () => {
           width: '100%',
           display: 'flex',
           minHeight: '100vh',
-          alignItems: 'center',
-          justifyContent: 'center'
+          alignItems: 'start',
+          justifyContent: 'right'
         }}
       >
         <motion.div
@@ -53,26 +66,28 @@ export const Main = () => {
             position: 'absolute',
             width: '100%',
             height: '100%',
-            filter: 'brightness(0.5)',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            backgroundImage: 'url("/qse-fundo.webp")'
+            backgroundImage: 'url("/picnic.png")'
           }}
         />
         <motion.header
           style={{
             zIndex: 1,
-            color: 'white',
-            fontSize: '80px',
+            padding: '72px 120px 0 0',
+            color: '#33333',
+            fontSize: '54px',
             textAlign: 'center',
-            lineHeight: '90px',
+            fontWeight: 'bold',
+            lineHeight: '82px',
             fontFamily: 'Roboto',
             textShadow: '0 0 5px rgba(255, 255, 255, 0.5)'
           }}
         >
-          Revolucionando a Saúde Global
-          <br /> com Tecnologia de Ponta
+          O sabor do delivery em sua melhor versão
+          <br />
+          com Tecnologia de Ponta
         </motion.header>
       </motion.section>
 
@@ -84,7 +99,7 @@ export const Main = () => {
           minHeight: '100vh',
           padding: '12px',
           display: 'flex',
-          gap: '80px',
+          gap: '144px',
           flexDirection: 'column',
           alignItems: 'start',
           justifyContent: 'start'
@@ -92,32 +107,32 @@ export const Main = () => {
       >
         <motion.header
           style={{
-            fontSize: '64px',
+            fontSize: '38px',
             display: 'flex',
+            fontFamily: 'Roboto',
             alignItems: 'center',
             flexDirection: 'column',
-            justifyContent: 'center',
-            fontFamily: 'Roboto'
+            justifyContent: 'center'
           }}
         >
-          Nosso Grupo
+          Explore uma seleção diversificada de pratos e restaurantes!
         </motion.header>
 
         <motion.div
           style={{
             display: 'grid',
-            gridGap: '100px',
+            gridGap: '140px',
             gridTemplateRows: 'repeat(2, 1fr)',
             gridAutoRows: 'minmax(0, 1fr)',
-            gridTemplateColumns: 'repeat(2, 1fr)'
+            gridTemplateColumns: 'repeat(4, 1fr)'
           }}
         >
-          {ourGroupImgs.map((group) => (
+          {foodImgs.map((food) => (
             <motion.img
-              key={group}
-              alt={`Grupo: ${group}`}
-              src={`/our-group/${group}.png`}
-              style={{ width: '400px', objectFit: 'contain' }}
+              key={food}
+              alt={`Grupo: ${food}`}
+              src={`/foods/${food}.png`}
+              style={{ width: '154px', objectFit: 'contain' }}
             />
           ))}
         </motion.div>

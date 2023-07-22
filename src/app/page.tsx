@@ -18,13 +18,13 @@ async function Home() {
 
   if (!qrStatus) redirect('/verify-qr-code')
 
-  return qrStatus ? (
+  return !qrStatus ? null : (
     <>
       <Header />
       <Main />
       <Footer />
     </>
-  ) : null
+  )
 }
 
 export default Home

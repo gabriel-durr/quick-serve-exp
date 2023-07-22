@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 import {
   RadioGroup,
@@ -33,7 +33,6 @@ import {
 import { Icons } from '~/app/components/icons'
 
 export const Settings = () => {
-  const btnRef = useRef<HTMLButtonElement>(null)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const [value, setValue] = useState('1')
@@ -46,22 +45,17 @@ export const Settings = () => {
   }
 
   return (
-    <>
-      <MenuItem
-        ref={btnRef}
-        py={2}
-        rounded="md"
-        gap={4}
-        bg="blackAlpha.900"
-        onClick={onOpen}
-        _dark={{ bg: 'whiteAlpha.900' }}
-        _hover={{ color: 'qse.rubi', transition: 'all .2s ease', filter: 'brightness(.9)' }}
-      >
-        <Icons.Settings color="qse.rubi" />
-        Settings
-      </MenuItem>
-
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef}>
+    <MenuItem
+      rounded="md"
+      gap={4}
+      bg="blackAlpha.900"
+      onClick={onOpen}
+      _dark={{ bg: 'whiteAlpha.900' }}
+      _hover={{ color: 'qse.rubi', transition: 'all .2s ease', filter: 'brightness(.9)' }}
+    >
+      <Icons.Settings color="qse.rubi" />
+      Settings
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent
           bg="blackAlpha.800"
@@ -191,6 +185,6 @@ export const Settings = () => {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-    </>
+    </MenuItem>
   )
 }

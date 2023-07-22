@@ -10,10 +10,10 @@ type MenuDataTypes = {
 }[]
 
 const menuData: MenuDataTypes = [
-  { id: 1, label: 'home', href: '/' },
-  { id: 2, label: 'about', href: '#' },
-  { id: 3, label: 'location', href: '#' },
-  { id: 4, label: 'contact', href: '#' }
+  { id: 1, label: 'restaurantes', href: '/' },
+  { id: 2, label: 'promoções do dia', href: '#' },
+  { id: 3, label: 'meus pedidos', href: '#' },
+  { id: 4, label: 'suporte', href: '#' }
 ]
 
 export const NavBar = () => {

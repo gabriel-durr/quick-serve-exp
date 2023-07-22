@@ -26,8 +26,8 @@ export const useQrManage = () => {
 
       const otpAuthUrl = speakeasy.otpauthURL({
         secret: secret,
-        label: 'TCSA',
-        issuer: 'TCSA Group',
+        label: 'QUICK SERVE EXP',
+        issuer: 'QUICK SERVE EXP',
         algorithm: 'sha1',
         period: thirtySeconds
       })
