@@ -1,25 +1,31 @@
 import { Text } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/next-js'
 
-export const RedirectRegister = () => {
+type ChangeAuthPagesProps = {
+  titleQuest: string
+  titleLink: string
+  href: string
+}
+
+export const ChangeAuthPages = ({ titleQuest, titleLink, href }: ChangeAuthPagesProps) => {
   return (
     <Text
       w="full"
       fontFamily="heading"
-      fontSize="sm"
+      fontSize="md"
       textAlign="center"
       color="gray.500"
       _dark={{ color: 'gray.50' }}
     >
-      Don’t have an account yet? &nbsp;
+      {titleQuest} &nbsp;
       <Link
-        href="/register"
+        href={href}
         fontWeight="bold"
         fontSize="md"
         color="gray.700"
         _dark={{ color: 'gray.100' }}
       >
-        Register
+        {titleLink}
       </Link>
     </Text>
   )

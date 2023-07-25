@@ -1,12 +1,13 @@
+'use client'
+
 import { Icons } from '~/app/components/icons'
 
 import { signOut } from 'next-auth/react'
-import { MenuItem } from '@chakra-ui/react'
+import { IconButton } from '@chakra-ui/react'
 
 export const SignOut = () => {
   async function handleSignOut() {
     try {
-      console.log('clicado')
       await signOut()
     } catch (error) {
       console.error('SignOut Error:', error)
@@ -14,16 +15,16 @@ export const SignOut = () => {
   }
 
   return (
-    <MenuItem
+    <IconButton
+      variant="unstyled"
       rounded="md"
-      bg="blackAlpha.900"
+      p="8px 12px"
+      fontSize="md"
+      color="qse.rubi"
+      aria-label="button de sair da conta"
+      icon={<Icons.Logout color="qse.rubi" width="24px" />}
+      _hover={{ transition: 'all .2s ease', filter: 'contrast(3)' }}
       onClick={handleSignOut}
-      gap={4}
-      _dark={{ bg: 'whiteAlpha.900' }}
-      _hover={{ color: 'qse.rubi', transition: 'all .2s ease', filter: 'brightness(.9)' }}
-    >
-      <Icons.Logout color="qse.rubi" />
-      Logout
-    </MenuItem>
+    />
   )
 }

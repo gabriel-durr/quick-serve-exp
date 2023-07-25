@@ -22,7 +22,7 @@ export const OrAuth = () => {
         borderColor: '#e6e6e6'
       }}
     >
-      Or
+      Ou
     </Text>
   )
 }

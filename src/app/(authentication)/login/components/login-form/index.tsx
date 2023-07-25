@@ -49,8 +49,8 @@ export const LoginForm = () => {
   }
 
   return (
-    <VStack as="form" spacing={32} w={96} onSubmit={handleSubmit(onSubmit)}>
-      <VStack w="100%" spacing={4} flex={1}>
+    <VStack as="form" spacing="20" w="96" onSubmit={handleSubmit(onSubmit)}>
+      <VStack w="100%" spacing="4" flex="1">
         <InputEmail errors={errors} register={register} />
 
         <InputPassword errors={errors} register={register} />
@@ -59,7 +59,6 @@ export const LoginForm = () => {
         type="submit"
         variant="qseSolidBtn"
         w="full"
-        bg="black"
         isDisabled={isDisabled}
         isLoading={isSubmitting}
         spinner={<SyncLoader size={4} color="pink" />}

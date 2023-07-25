@@ -26,7 +26,7 @@ export const InputEmail = ({ errors, register }: InputEmailProps) => {
           <Icons.Message />
         </InputLeftElement>
 
-        <Input variant="tcsaInput" placeholder="Email" {...register} />
+        <Input variant="qseInput" placeholder="E-mail" {...register} />
       </InputGroup>
 
       {hasMailError && <FormErrorMessage>{errors?.email?.message}</FormErrorMessage>}

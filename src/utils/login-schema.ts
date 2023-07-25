@@ -4,61 +4,43 @@ export const signInForm = z.object({
   email: z
     .string()
     .toLowerCase()
-    .nonempty('Email required')
-    .email('Invalid email')
-    .max(80, 'Maximum 80 characters allowed'),
+    .nonempty('Email obrigatório')
+    .email('Email inválido')
+    .max(254, 'Máximo de 254 caracteres permitidos'),
   password: z
     .string()
-    .nonempty('Password required')
+    .nonempty('Senha obrigatória')
     .regex(
       /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.{8,})/,
-      'Password must contain: At least 8 characters, At least one uppercase letter, At least one special character (!@#$&*)'
+      'A senha deve conter: Pelo menos 8 caracteres, uma letra maiúscula, um caractere especial (!@#$&*)'
     )
 })
 
 export const registerForm = z.object({
-  firstName: z
+  fullName: z
     .string()
-    .nonempty('First name required')
-    .min(2, 'Minimum 2 characters required')
-    .max(32, 'Maximum 32 characters allowed')
-    .refine((name) => name.split(' ').length === 1, 'First Name should be a single word')
-    .transform((name) =>
-      name
-        .trim()
-        .toLowerCase()
-        .replace(/^\w/, (c) => c.toUpperCase())
-    ),
-
-  lastName: z
-    .string()
-    .nonempty('Last name required')
-    .min(2, 'Minimum 2 characters required')
-    .max(32, 'Maximum 32 characters allowed')
-    .refine((name) => name.split(' ').length === 1, 'Last Name should be a single word')
-    .transform((name) =>
-      name
-        .trim()
-        .toLowerCase()
-        .replace(/^\w/, (c) => c.toUpperCase())
-    ),
+    .nonempty('Nome Completo obrigatório')
+    .min(12, 'Mínimo de 12 caracteres obrigatórios')
+    .max(150, 'Máximo de 150 caracteres permitidos'),
 
   email: z
     .string()
     .toLowerCase()
-    .nonempty('Email required')
-    .email('Invalid email')
-    .max(80, 'Maximum 80 characters allowed'),
+    .nonempty('Email obrigatório')
+    .email('Email inválido')
+    .max(254, 'Máximo de 254 caracteres permitidos'),
 
   password: z
     .string()
-    .nonempty('Password required')
+    .nonempty('Senha obrigatória')
     .regex(
       /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.{8,})/,
-      'Password must contain: At least 8 characters, At least one uppercase letter, At least one special character (!@#$&*)'
+      'A senha deve conter: Pelo menos 8 caracteres, uma letra maiúscula, um caractere especial (!@#$&*)'
     ),
 
-  terms: z.boolean().refine((value) => value === true, { message: 'You must check the terms box' })
+  terms: z
+    .boolean()
+    .refine((value) => value === true, { message: 'Você deve marcar a caixa de termos de uso' })
 })
 
 export type SignInFormProps = z.infer<typeof signInForm>

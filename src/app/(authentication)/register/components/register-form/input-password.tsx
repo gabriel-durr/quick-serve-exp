@@ -31,8 +31,8 @@ export const InputPassword = ({ errors, register }: InputPasswordProps) => {
         </InputLeftElement>
         <Input
           type={isVisible ? 'text' : 'password'}
-          variant="tcsaInput"
-          placeholder="Password"
+          variant="qseInput"
+          placeholder="Senha"
           {...register}
         />
 

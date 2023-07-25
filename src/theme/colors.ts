@@ -1,6 +1,7 @@
 export const colors = {
   qse: {
     black: '#000000',
+    blackMd: '#050505',
     slate: '#69727d',
     gray: '#7a7a7a',
     pink: '#cc3366',

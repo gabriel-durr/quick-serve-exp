@@ -15,13 +15,12 @@ export const ButtonSubmit = ({ isDisabled, isSubmitting, ...props }: ButtonSubmi
       variant="qseSolidBtn"
       role="button"
       w="full"
-      bg="black"
       isDisabled={isDisabled}
       isLoading={isSubmitting}
       spinner={<SyncLoader size={4} color="pink" />}
       {...props}
     >
-      Register
+      Registrar
     </Button>
   )
 }

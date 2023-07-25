@@ -28,8 +28,8 @@ export const ActiveLink = ({ children, href }: PropsWithChildren<ActiveLinkProps
       textTransform="uppercase"
       fontFamily="heading"
       fontWeight="medium"
-      color={isActivePath ? 'qse.rubi' : 'lightGray'}
-      _dark={{ color: isActivePath ? 'qse.rubi' : 'gray.900' }}
+      color={isActivePath ? 'qse.rubi' : 'gray.500'}
+      _dark={{ color: isActivePath ? 'qse.rubi' : 'gray.500' }}
       onClick={handleClick}
     >
       {children}

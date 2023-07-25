@@ -7,8 +7,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 export const Main = () => {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start', 'end']
+    target: ref
   })
 
   const opacity = useTransform(scrollYProgress, [0, 0.1], [1, 0])
@@ -66,6 +65,7 @@ export const Main = () => {
             position: 'absolute',
             width: '100%',
             height: '100%',
+            opacity: 0.2,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -74,7 +74,6 @@ export const Main = () => {
         />
         <motion.header
           style={{
-            zIndex: 1,
             padding: '72px 120px 0 0',
             color: '#33333',
             fontSize: '54px',

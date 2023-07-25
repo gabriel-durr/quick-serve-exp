@@ -1,12 +1,14 @@
 import { FieldErrors, UseFormRegisterReturn } from 'react-hook-form'
 
+import NextLink from 'next/link'
 import {
-  Checkbox,
   Text,
-  FormControl,
+  Link,
+  Checkbox,
   FormLabel,
-  FormErrorMessage,
-  CheckboxProps
+  FormControl,
+  CheckboxProps,
+  FormErrorMessage
 } from '@chakra-ui/react'
 
 export type CheckboxTermsProps = CheckboxProps & {
@@ -26,8 +28,11 @@ export const CheckboxTerms = ({ errors, register }: CheckboxTermsProps) => {
           aria-checked={hasTermsError ? 'true' : 'false'}
           {...register}
         >
-          <Text fontSize="sm" p={2} lineHeight={4} fontFamily="mono" color="gray.400">
-            By continuing you accept our Privacy Policy and Term of Use
+          <Text fontSize="15px" p={2} lineHeight={4} color="gray.400">
+            Li e concordo com os termos
+            <Link as={NextLink} href="#" fontSize="13.8px" color="qse.pink" pl="8px">
+              Termos de uso
+            </Link>
           </Text>
         </Checkbox>
       </FormLabel>

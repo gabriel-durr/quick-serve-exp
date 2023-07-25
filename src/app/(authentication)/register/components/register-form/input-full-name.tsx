@@ -11,13 +11,13 @@ import {
 
 import { Icons } from '~/app/components/icons'
 
-export type InputFirstNameProps = InputProps & {
-  register: UseFormRegisterReturn<'firstName'>
-  errors?: FieldErrors<{ firstName: string }>
+export type InputFulllNameProps = InputProps & {
+  register: UseFormRegisterReturn<'fullName'>
+  errors?: FieldErrors<{ fullName: string }>
 }
 
-export const InputFirstName = ({ errors, register, ...props }: InputFirstNameProps) => {
-  const hasFirstNameError = !!errors?.firstName
+export const InputFullName = ({ errors, register, ...props }: InputFulllNameProps) => {
+  const hasFirstNameError = !!errors?.fullName
 
   return (
     <FormControl isInvalid={hasFirstNameError}>
@@ -27,16 +27,16 @@ export const InputFirstName = ({ errors, register, ...props }: InputFirstNamePro
         </InputLeftElement>
 
         <Input
-          variant="tcsaInput"
+          variant="qseInput"
           isInvalid
           errorBorderColor="red.300"
-          placeholder="First Name"
+          placeholder="Nome Completo"
           {...register}
           {...props}
         />
       </InputGroup>
 
-      {hasFirstNameError && <FormErrorMessage>{errors.firstName?.message}</FormErrorMessage>}
+      {hasFirstNameError && <FormErrorMessage>{errors.fullName?.message}</FormErrorMessage>}
     </FormControl>
   )
 }

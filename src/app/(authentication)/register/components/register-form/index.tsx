@@ -12,8 +12,7 @@ import { InputEmail } from './input-email'
 import { ButtonSubmit } from './button-submit'
 import { InputPassword } from './input-password'
 import { CheckboxTerms } from './checkbox-terms'
-import { InputLastName } from './input-last-name'
-import { InputFirstName } from './input-first-name'
+import { InputFullName } from './input-full-name'
 import { registerForm, RegisterFormProps } from '~/utils/login-schema'
 
 export const RegisterForm = () => {
@@ -29,9 +28,9 @@ export const RegisterForm = () => {
   const isErrorExists = Boolean(Object.keys(errors).length)
   const isDisabled = (isSubmitted && !isValid) || isErrorExists
 
-  async function onSubmit({ firstName, lastName, email, password }: RegisterFormProps) {
+  async function onSubmit({ fullName, email, password }: RegisterFormProps) {
     try {
-      const res = await api.post('/sign-up', { firstName, lastName, email, password })
+      const res = await api.post('/sign-up', { fullName, email, password })
 
       if (res.status === 201) router.push('/login')
     } catch (error) {
@@ -42,11 +41,9 @@ export const RegisterForm = () => {
   }
 
   return (
-    <VStack as="form" noValidate spacing={12} w={96} onSubmit={handleSubmit(onSubmit)}>
-      <VStack w="100%" spacing={4} flex="1">
-        <InputFirstName errors={errors} register={register('firstName')} />
-
-        <InputLastName errors={errors} register={register('lastName')} />
+    <VStack as="form" noValidate spacing="20" w="96" onSubmit={handleSubmit(onSubmit)}>
+      <VStack w="100%" spacing="4" flex="1">
+        <InputFullName errors={errors} register={register('fullName')} />
 
         <InputEmail errors={errors} register={register('email')} />
 

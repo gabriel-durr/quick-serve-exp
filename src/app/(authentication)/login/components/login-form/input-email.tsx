@@ -19,7 +19,7 @@ export const InputEmail = ({ errors, register }: InputEmailProps) => (
         <Icons.Message />
       </InputLeftElement>
 
-      <Input variant="tcsaInput" placeholder="Email" {...register('email')} />
+      <Input variant="qseInput" placeholder="Email" {...register('email')} />
     </InputGroup>
 
     <FormErrorMessage>{errors.email && errors.email.message}</FormErrorMessage>

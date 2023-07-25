@@ -6,7 +6,7 @@ import { generateOtpSecret } from '~/utils/generate-otp-secret'
 
 export async function POST(request: Request) {
   try {
-    const { firstName, lastName, email, password } = await request.json()
+    const { fullName, email, password } = await request.json()
 
     const userExists = await prisma.user.findUnique({
       where: { email }
@@ -21,7 +21,7 @@ export async function POST(request: Request) {
 
     const createUser = await prisma.user.create({
       data: {
-        name: `${firstName} ${lastName}`,
+        name: fullName,
         email,
         secret,
         password: hashedPassword

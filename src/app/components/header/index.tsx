@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { Flex, HStack, Image, FlexProps, Avatar, Box } from '@chakra-ui/react'
 
 import { NavBar } from './nav-bar'
-import { MoreOptions } from './more-options'
+import { SignOut } from './sign-out'
 import { DarkMode } from './dark-mode'
 import { useGetClientSession } from '~/helpers/session/client'
 
@@ -24,11 +24,11 @@ export const Header = ({ ...props }: FlexProps) => {
       px={32}
       w="full"
       h="100px"
-      bg="qse.black"
-      color="gray.50"
+      bg="gray.50"
+      color="gray.800"
       align="center"
       justify="space-between"
-      _dark={{ bg: 'qse.offWhite', color: 'gray.900' }}
+      _dark={{ bg: 'qse.blackMd', color: 'gray.50' }}
       {...props}
     >
       <Box h={16} w="200px">
@@ -37,7 +37,7 @@ export const Header = ({ ...props }: FlexProps) => {
 
       <NavBar />
 
-      <HStack spacing={4}>
+      <HStack spacing={8}>
         <Avatar
           pos="relative"
           size="md"
@@ -48,7 +48,7 @@ export const Header = ({ ...props }: FlexProps) => {
           onClick={handleClickProfile}
           _hover={{
             '&::before': {
-              content: '"Profile"',
+              content: '"Perfil"',
               bottom: 0,
               fontSize: 10,
               pos: 'absolute',
@@ -59,7 +59,7 @@ export const Header = ({ ...props }: FlexProps) => {
           }}
         />
         <HStack spacing={32}>
-          <MoreOptions />
+          <SignOut />
           <DarkMode />
         </HStack>
       </HStack>
